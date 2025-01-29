@@ -2,8 +2,8 @@
 try:
 
     import math
-    concrete = input("Concrete is C30 Concrete (Y/N)? :")
-    steel = input("Steel is S420 Steel (Y/N)? :")
+    concrete = input("Concrete is C30 Concrete (Y/N)? :").strip().upper()
+    steel = input("Steel is S420 Steel (Y/N)? :").strip().upper()
 
     if concrete == "Y" and steel == "Y":
         k1 = 0.82
@@ -24,7 +24,7 @@ try:
                 Fc2 = 0.85 * 200 * (b-bw) * hf
                 c1 = (areaSteel * 3650 - Fc2) / (0.85 * 200 * bw * k1)
                 Fc1 = 0.85 * 200 * bw * k1 * c1
-                z = d - ((k1 * c) / 2)
+                z = d - ((k1 * c1) / 2)
                 z0 = d - (hf / 2)
                 Mu = (Fc1 * z) + (Fc2 * z0)
                 print(f"Ultimate Moment Capacity is {round(Mu, 2)}")
